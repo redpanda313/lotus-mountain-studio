@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lotus Mountain — Indie 2D Game Art &amp; Spine Animation Studio</title>
+<meta name="description" content="Lotus Mountain is an independent game studio in Utah creating 2D game art and Spine skeletal animation, including the sci-fi game Narcalid and Spine-animated asset packs for Unity.">
+<meta property="og:title" content="Lotus Mountain — Indie 2D Game Art &amp; Spine Animation Studio">
+<meta property="og:description" content="2D character art, Spine animation and the sci-fi game Narcalid. Independent studio based in Utah.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/bosses.webp">
+<meta name="theme-color" content="#070a16">
+<style>
+:root{--bg:#070a16;--bg2:#0d1226;--card:#121832;--line:#232b52;--text:#e8ecff;--muted:#9aa3c7;--a:#5ee7ff;--b:#b388ff;--c:#ff7ad9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--a);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header.nav{position:sticky;top:0;z-index:10;background:rgba(7,10,22,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.95rem;color:var(--text)}
+.brand:hover{text-decoration:none}
+.brand svg{width:28px;height:28px}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav ul a{color:var(--muted);font-size:.9rem;letter-spacing:.04em}
+.nav ul a:hover{color:var(--text);text-decoration:none}
+.hero{position:relative;overflow:hidden;padding:84px 0 70px;background:
+ radial-gradient(900px 500px at 78% 30%,rgba(179,136,255,.28),transparent 60%),
+ radial-gradient(700px 420px at 10% 90%,rgba(94,231,255,.16),transparent 60%),
+ linear-gradient(180deg,#0a0f24,#070a16)}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(1.4px 1.4px at 20px 30px,#fff8,transparent),radial-gradient(1px 1px at 140px 90px,#fff6,transparent),radial-gradient(1.6px 1.6px at 90px 160px,#cfe8ff88,transparent);background-size:200px 200px;opacity:.5}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a);border:1px solid rgba(94,231,255,.4);padding:5px 12px;border-radius:99px;margin-bottom:22px}
+h1{font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+h1 span{background:linear-gradient(90deg,var(--a),var(--b) 55%,var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.12rem;max-width:34em;margin-bottom:30px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;padding:12px 24px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid var(--line);color:var(--text)}
+.btn.primary{background:linear-gradient(90deg,#2bc3e6,#8c5cff);border-color:transparent;color:#04060f}
+.btn:hover{text-decoration:none;filter:brightness(1.12)}
+.hero-art{position:relative;height:420px}
+.hero-art img{position:absolute;filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
+.hero-art .h1{width:60%;right:0;top:0;animation:float 7s ease-in-out infinite}
+.hero-art .h2{width:38%;left:0;bottom:0;animation:float 8s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.hero-art img{animation:none}}
+section{padding:84px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--b);margin-bottom:10px}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.01em;margin-bottom:16px}
+.sub{color:var(--muted);max-width:44em;margin-bottom:40px}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.about p{color:#c6cdee;margin-bottom:16px}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.facts dt{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.facts dt:first-child{margin-top:0}
+.facts dd{font-weight:600}
+.narcalid{display:grid;grid-template-columns:260px 1fr;gap:44px;align-items:center}
+.narcalid img{border-radius:14px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(140,92,255,.25);width:260px}
+.narcalid p{color:#c6cdee;margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tags li{list-style:none;font-size:.82rem;color:var(--a);border:1px solid rgba(94,231,255,.3);padding:4px 12px;border-radius:99px;background:rgba(94,231,255,.05)}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.gallery figure{grid-column:span 2;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .25s,border-color .25s}
+.gallery figure:hover{transform:translateY(-4px);border-color:var(--b)}
+.gallery figure.wide{grid-column:span 3}
+.gallery img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.gallery figcaption{padding:14px 18px 18px;font-size:.9rem;color:var(--muted)}
+.gallery figcaption b{display:block;color:var(--text);font-size:1rem;margin-bottom:2px}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+.skill .ic{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(94,231,255,.22),rgba(179,136,255,.22));display:grid;place-items:center;margin-bottom:16px;color:var(--a)}
+.skill .ic svg{width:22px;height:22px}
+.skill h3{font-size:1.05rem;margin-bottom:8px}
+.skill p{font-size:.9rem;color:var(--muted)}
+.tech{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+.tech li{list-style:none;font-size:.85rem;color:var(--text);background:var(--card);border:1px solid var(--line);padding:6px 14px;border-radius:8px}
+.contact{text-align:center}
+.contact .sub{margin-left:auto;margin-right:auto}
+.mail{display:inline-block;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:700;padding:16px 32px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--a)}
+.mail:hover{text-decoration:none;border-color:var(--a)}
+.contact .meta{margin-top:22px;color:var(--muted);font-size:.95rem}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media (max-width:900px){
+ .hero .wrap,.about,.narcalid{grid-template-columns:1fr}
+ .hero-art{height:320px;order:-1}
+ .skills{grid-template-columns:repeat(2,1fr)}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .gallery figure,.gallery figure.wide{grid-column:span 1}
+ .narcalid img{margin:0 auto}
+ .nav ul{gap:16px}
+}
+@media (max-width:560px){
+ .nav ul li:nth-child(n+3){display:none}.brand{letter-spacing:.1em}
+ .gallery,.skills{grid-template-columns:1fr}
+ section{padding:60px 0}
+ .hero{padding:48px 0 50px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+ <div class="wrap">
+  <a class="brand" href="#top" aria-label="Lotus Mountain home">
+   <svg viewBox="0 0 32 32" fill="none" stroke="#5ee7ff" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2 26 12 10l5 7 4-5 9 14z"/><path d="M16 26c-2-3-2-6 0-9 2 3 2 6 0 9z" stroke="#b388ff"/></svg>
+   Lotus Mountain
+  </a>
+  <nav><ul>
+   <li><a href="#about">About</a></li>
+   <li><a href="#narcalid">Narcalid</a></li>
+   <li><a href="#work">Portfolio</a></li>
+   <li><a href="#skills">Skills</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main id="top">
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <span class="eyebrow">Independent game studio · Utah</span>
+   <h1>Hand-animated <span>2D worlds</span> for sci-fi games.</h1>
+   <p class="lead">Lotus Mountain is an indie studio focused on 2D game art and Spine skeletal animation. We make Narcalid, a sci-fi 2D game, and Spine-animated character and creature packs for Unity developers.</p>
+   <div class="btns">
+    <a class="btn primary" href="#work">View portfolio</a>
+    <a class="btn" href="#contact">Get in touch</a>
+   </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+   <img class="h1" src="assets/hero-maya.webp" alt="" width="900" height="747" fetchpriority="high">
+   <img class="h2" src="assets/hero-wolf.webp" alt="" width="787" height="800">
+  </div>
+ </div>
+</div>
+
+<section id="about">
+ <div class="wrap about">
+  <div>
+   <div class="kicker">About</div>
+   <h2>A small studio with a big alien universe</h2>
+   <p>Lotus Mountain is the independent studio of Pete Jones, based in Utah. The studio designs, draws and animates its own 2D game content: characters, creatures, bosses, plants and interface art, all built around a consistent sci-fi world.</p>
+   <p>Everything is rigged and animated by hand in Spine and tested inside Unity, so the same assets used in our own game are production-ready for other developers' projects.</p>
+  </div>
+  <dl class="facts">
+   <dt>Studio</dt><dd>Lotus Mountain</dd>
+   <dt>Founder</dt><dd>Pete Jones</dd>
+   <dt>Location</dt><dd>Utah, USA</dd>
+   <dt>Focus</dt><dd>2D game art &amp; Spine animation</dd>
+   <dt>Current project</dt><dd>Narcalid</dd>
+  </dl>
+ </div>
+</section>
+
+<section id="narcalid" class="alt">
+ <div class="wrap narcalid">
+  <img src="assets/narcalid-key.webp" alt="Narcalid key art: a pink-haired heroine and her crew in front of the Narcalid logo" width="300" height="450" loading="lazy">
+  <div>
+   <div class="kicker">Featured project</div>
+   <h2>Narcalid</h2>
+   <p>Narcalid is our original sci-fi 2D game. Its look comes from hand-drawn characters and bone-driven Spine animation: alien creatures that move with their own personalities, boss encounters, living alien plants, a playable crew and the interface that ties it together.</p>
+   <p>The art and animation pipeline built for Narcalid is the foundation for the Spine packs we create for other Unity developers.</p>
+   <ul class="tags"><li>Robots &amp; droids</li><li>Alien creatures</li><li>Bosses</li><li>Alien plants</li><li>Playable characters</li><li>Crew NPCs</li><li>Game UI</li></ul>
+  </div>
+ </div>
+</section>
+
+<section id="work">
+ <div class="wrap">
+  <div class="kicker">Portfolio</div>
+  <h2>Narcalid art &amp; Spine-animated packs</h2>
+  <p class="sub">A selection of original character art and animation from Narcalid, also released as 2D Spine-animated asset packs for Unity 6, built with Spine 4.2 and spine-unity 4.2.</p>
+  <div class="gallery">
+   <figure class="wide"><img src="assets/robots.webp" alt="Sci-fi robots and characters from Narcalid, hand-animated in Spine" width="1200" height="800" loading="lazy"><figcaption><b>2D Sci-Fi Robots &amp; Characters</b>Robots, droids and supporting characters with Spine animation.</figcaption></figure>
+   <figure class="wide"><img src="assets/bosses.webp" alt="Alien boss monsters from Narcalid, hand-animated in Spine" width="1200" height="800" loading="lazy"><figcaption><b>2D Alien Bosses</b>Boss-scale creatures built for encounters.</figcaption></figure>
+   <figure><img src="assets/creatures.webp" alt="Alien creatures from Narcalid, hand-animated in Spine" width="1200" height="800" loading="lazy"><figcaption><b>2D Alien Creatures</b>Wildlife and enemies with individual personalities.</figcaption></figure>
+   <figure><img src="assets/heroes.webp" alt="Sci-fi platformer heroes from Narcalid, hand-animated in Spine" width="1200" height="800" loading="lazy"><figcaption><b>2D Sci-Fi Platformer Heroes</b>Playable characters with movement animation sets.</figcaption></figure>
+   <figure><img src="assets/npcs.webp" alt="Sci-fi crew NPCs from Narcalid, hand-animated in Spine" width="1200" height="800" loading="lazy"><figcaption><b>2D Sci-Fi Crew NPCs</b>Crew characters sharing one Spine rig with multiple skins.</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section id="skills" class="alt">
+ <div class="wrap">
+  <div class="kicker">Skills</div>
+  <h2>What we do</h2>
+  <p class="sub">From concept art to a working prefab in the engine, the whole 2D character pipeline is handled in-house.</p>
+  <div class="skills">
+   <div class="skill"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18zM2 2l7.6 7.6"/></svg></div><h3>2D character art</h3><p>Original characters, creatures, bosses and plants with a cohesive sci-fi visual style.</p></div>
+   <div class="skill"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.5 7.5l4 3.2M13.5 13.3l4 3.2"/></svg></div><h3>Spine skeletal animation</h3><p>Bone-driven rigs with idles, locomotion, attacks and expressive character animation.</p></div>
+   <div class="skill"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div><h3>Unity integration</h3><p>Spine 4.2 / spine-unity 4.2 prefabs, demo scenes and setup tooling for Unity 6.</p></div>
+   <div class="skill"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v5M4.5 12.5h5M16 11h.01M18.5 14h.01"/></svg></div><h3>Game design</h3><p>World building, encounters and gameplay systems for a 2D sci-fi platformer.</p></div>
+  </div>
+  <ul class="tech"><li>Spine 4.2</li><li>spine-unity 4.2</li><li>Unity 6</li><li>Universal Render Pipeline</li><li>2D animation</li><li>Prefab &amp; Mecanim workflows</li></ul>
+ </div>
+</section>
+
+<section id="contact" class="contact">
+ <div class="wrap">
+  <div class="kicker">Contact</div>
+  <h2>Let's talk</h2>
+  <p class="sub">Questions about our asset packs, licensing, support or a collaboration? Send us an email and we'll get back to you.</p>
+  <a class="mail" href="mailto:Peter@lotus-mountain.com">Peter@lotus-mountain.com</a>
+  <p class="meta">Lotus Mountain · Pete Jones · Utah, USA</p>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap"><span>© 2026 Lotus Mountain. All rights reserved.</span><span>Narcalid and all artwork shown © Lotus Mountain.</span></div>
+</footer>
+</body>
+</html>
